@@ -1,7 +1,5 @@
-# Rhythia Reimagined Streamslop Data
+# Rhythia Reimagined Streamslop Catalog
 
-Private data repository for the Rhythia Reimagined extension.
+Public data-only repository for the Rhythia Reimagined browser extension.
 
-Only the catalog in `data/streamslops.json` is distributed from this repository. The extension source code and local developer tools are intentionally excluded.
-
-Entries are matched by stable score or beatmap identifiers, not by the visible map title. The title and note fields are for human-readable maintenance only.
+This repository intentionally contains no extension source code. The catalog in `data/streamslops.json` is matched by stable score or beatmap identifiers, not by the visible map title. Names and notes are only for human-readable maintenance.
