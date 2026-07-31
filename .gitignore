@@ -1,0 +1,7 @@
+# This repository distributes only the Streamslop catalog.
+# Keep the extension source, local tooling, and test artifacts private.
+*
+!/.gitignore
+!/README.md
+!/data/
+!/data/streamslops.json
