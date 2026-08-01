@@ -35,6 +35,16 @@ This is the public companion repository for Rhythia: Reimagined. It contains:
 The browser extension source code, private developer tooling, credentials, and
 user data are not included in this repository.
 
+## Privacy & Data Handling
+
+The extension stores settings, profile history, Title Progression state, and
+compact statistics locally in Chrome extension storage. It does not send local
+cache data to the maintainer, GitHub, analytics providers, or advertising
+services, and it does not include a telemetry or analytics system. The
+extension communicates with the official Rhythia API only when needed to load
+data for its user-facing features. Server-side Rhythia and Capo Games data
+practices are governed by their own policies.
+
 ## Credits
 
 Rhythia is created by [Capo Games](https://capo.games). This is an unofficial community project and is not affiliated with or endorsed by Capo Games.

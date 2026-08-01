@@ -9,6 +9,7 @@ steps, and the minimum information needed to verify the report. GitHub does
 not provide a general private direct-message channel between user profiles, so
 do not rely on a GitHub profile for confidential reports.
 
-This public repository contains only the Streamslop data catalog and support
-documentation. The extension source code and developer tooling remain in a
-separate private repository.
+This public repository contains the community Streamslop catalog, user-facing
+documentation, issue templates, and policy files for Rhythia: Reimagined. The
+extension source code, build scripts, credentials, private developer tooling,
+and user data remain outside this public repository.
