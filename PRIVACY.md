@@ -18,10 +18,20 @@ order to authenticate that request. The session value is used only for the
 request and is not stored by the extension, included in diagnostics, or sent to
 GitHub.
 
+The session value is read at request time from the current Rhythia page's local
+storage. The extension does not copy it into its own Chrome storage, persist it
+as extension data, or log it. It is transmitted only as part of the request to
+the official Rhythia API that requires it for authentication, and is not sent
+to any other third party or external service.
+
 ## Permissions used
 
 The extension requests the following Manifest V3 permissions because they are
 needed for its user-facing features:
+
+The extension requests only the minimum permissions necessary to provide its
+features. It does not collect or process data for secondary purposes unrelated
+to enhancing the Rhythia interface.
 
 - `storage`: saves settings, profile history, Title Progression state, and
   compact local statistics in Chrome extension storage.
@@ -68,6 +78,17 @@ delete them manually.
 
 The extension provides controls to delete saved history and Title Progression
 data. Automatic retention and size limits can also remove old local records.
+
+## User rights and data control
+
+All data created and stored by the extension, including settings, profile
+history, and local caches, remains under the user's control in the browser. You
+can change retention settings, remove individual profiles or records, clear
+saved history and Title Progression data, or remove all extension storage by
+uninstalling the extension from Chrome. These controls apply to local
+extension data only; they do not delete or change records held by Rhythia or
+Capo Games. Requests concerning server-side data should be sent to Capo Games
+through official Rhythia support channels.
 
 ## Data sharing and monetization
 
