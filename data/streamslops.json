@@ -1,4 +1,37 @@
 {
-  "version": 1,
-  "maps": []
+  "version": 2,
+  "maps": [
+    {
+      "name": "Serenity - Lionheart (Cut Ver.)",
+      "tag": "Streamslop"
+    },
+    {
+      "name": "Vulpecula - Crystallite Dream",
+      "tag": "Streamslop"
+    },
+    {
+      "name": "Imperial Circus Dead Decadence - Yomi yori Kikoyu, Koukoku no Tou to Honoo no Shoujo.",
+      "tag": "Streamslop"
+    },
+    {
+      "name": "Pierce The Veil - Hell Above",
+      "tag": "Streamslop"
+    },
+    {
+      "name": "Twilight Force - Valley of the Vale",
+      "tag": "Streamslop"
+    },
+    {
+      "name": "JVKE - Golden Hour (Chime Remix)",
+      "tag": "Streamslop"
+    },
+    {
+      "name": "GALNERYUS - RAISE MY SWORD",
+      "tag": "Streamslop"
+    },
+    {
+      "name": "Unlucky Morpheus - BPM210 no Shanghai Alice (Instrumental)",
+      "tag": "Streamslop"
+    }
+  ]
 }
