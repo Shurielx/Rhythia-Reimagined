@@ -107,15 +107,21 @@ profile data, or authentication data to GitHub.
 ## Third-party services
 
 The extension communicates with Rhythia and its official API endpoints to load
-the data required by the extension. Rhythia and Capo Games' terms, privacy
-practices, retention, and monetization practices are separate from this
-project and are not known or controlled by the extension maintainer.
+the data required by the extension. The terms, privacy practices, retention,
+and monetization practices published by Capo Games are separate from this
+project and are not controlled by the extension maintainer.
 
 Questions, complaints, or requests about a Rhythia account, official API
-processing, server-side records, authentication sessions, or Capo Games'
-handling of data should be directed to Capo Games through official Rhythia
-support channels. The contact address below is only for the extension's own
-local data handling and privacy questions.
+processing, server-side records, authentication sessions, or how Capo Games
+handles data should be directed to Capo Games through official Rhythia support
+channels. The contact address below is only for the extension's own local data
+handling and privacy questions.
+
+Official provider references:
+
+- [Capo Games](https://www.capo.games/)
+- [Rhythia Terms and Privacy](https://github.com/Capo-Games/terms-privacy)
+- Rhythia privacy contact: `support@rhythia.com`
 
 GitHub is used only for public documentation, issue reports, and links shown in
 the extension. The extension does not automatically send local cache, profile
