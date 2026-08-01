@@ -1,10 +1,39 @@
-# Rhythia Reimagined Streamslop Catalog
+# Rhythia: Reimagined
 
-A small community-maintained catalog of Streamslop maps for the Rhythia Reimagined browser extension.
+Rhythia: Reimagined is a browser extension that adds a clearer and more useful
+way to explore Rhythia profiles, scores, progression, and performance data.
 
-Streamslops are tagged manually for now, because apparently that is how we live.
+The extension also includes a community-maintained catalog of Streamslop maps.
+Streamslops are tagged manually for now because the Rhythia API does not expose
+a Streamslop tag yet.
 
-> yes, i do need to add streamslops by hand... cunev, add a stream tag to the API so i don't have to do this.
+## Status
+
+The current public release is `1.0.0` (`v1.0 - Initial Release`). The core
+functionality is working as intended and the extension is ready for regular use.
+Future updates will continue to improve polish, usability, visual consistency,
+and edge-case handling.
+
+## What It Provides
+
+- Enhanced profile and score views
+- Performance statistics and score filters
+- Progression and rank tracking
+- Local history and storage management
+- Profile and score comparison tools
+- Streamslop catalog integration
+
+## This Repository
+
+This is the public companion repository for Rhythia: Reimagined. It contains:
+
+- The public Streamslop catalog
+- User-facing documentation
+- Privacy and security policies
+- Issue templates for bug reports and feature requests
+
+The browser extension source code, private developer tooling, credentials, and
+user data are not included in this repository.
 
 ## Credits
 
@@ -18,7 +47,3 @@ Rhythia Reimagined is maintained by [Shurielx](https://github.com/Shurielx).
 - [Suggest an improvement](https://github.com/Shurielx/Rhythia-Reimagined/issues/new?template=feature_request.md)
 - [Privacy policy](PRIVACY.md)
 - [Security policy](SECURITY.md)
-
-This repository intentionally contains no browser extension source code, private
-developer tooling, credentials, or user data. It distributes the public data
-catalog and hosts documentation and issue templates for the extension.
