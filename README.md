@@ -1,5 +1,13 @@
 # Rhythia Reimagined Streamslop Catalog
 
-Public data-only repository for the Rhythia Reimagined browser extension.
+A small community-maintained catalog of Streamslop maps for the Rhythia Reimagined browser extension.
 
-This repository intentionally contains no extension source code. The catalog in `data/streamslops.json` is currently matched by normalized visible map title by the extension. The `name` and `tag` fields are the source of truth for catalog maintenance.
+Streamslops are tagged manually for now, because apparently that is how we live.
+
+> yes, i do need to add streamslops by hand... cunev, add a stream tag to the API so i don't have to do this.
+
+## Credits
+
+Rhythia is created by [Capo Games](https://capo.games). This is an unofficial community project and is not affiliated with or endorsed by Capo Games.
+
+Rhythia Reimagined is maintained by [Shurielx](https://github.com/Shurielx).
