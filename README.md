@@ -51,6 +51,24 @@ Rhythia is created by [Capo Games](https://capo.games). This is an unofficial co
 
 Rhythia Reimagined is maintained by [Shurielx](https://github.com/Shurielx).
 
+## Source Code and Attribution
+
+The extension source code is maintained separately from this public companion
+repository. Original Rhythia: Reimagined code may be copied, modified, and
+redistributed under the terms of [`LICENSE.md`](LICENSE.md).
+
+Any public use, redistribution, or derivative work containing the original
+project code must include clear and visible credit to
+[Shuriel](https://github.com/Shurielx). The credit must be reasonably easy to
+find in a Credits, About, Attribution, README, documentation, project, or
+release page. It must not be hidden only in source comments, metadata, or an
+otherwise inaccessible legal notice.
+
+This repository's license does not grant rights to Rhythia.com's code, content,
+data, design, trademarks, or other materials belonging to Capo Games. The
+community Streamslop catalog and any third-party materials remain subject to
+their applicable rights and licenses.
+
 ## Support
 
 - [Report a bug](https://github.com/Shurielx/Rhythia-Reimagined/issues/new?template=bug_report.md)
