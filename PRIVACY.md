@@ -18,6 +18,24 @@ order to authenticate that request. The session value is used only for the
 request and is not stored by the extension, included in diagnostics, or sent to
 GitHub.
 
+## Permissions used
+
+The extension requests the following Manifest V3 permissions because they are
+needed for its user-facing features:
+
+- `storage`: saves settings, profile history, Title Progression state, and
+  compact local statistics in Chrome extension storage.
+- `unlimitedStorage`: supports the extension's configurable local cache without
+  relying on the browser's smaller default storage quota. The extension still
+  applies its own cache size and profile limits.
+- `activeTab`: lets the popup communicate with the currently active Rhythia
+  profile tab when the user uses actions such as saving the current profile
+  state.
+- Host access for `rhythia.com`, `www.rhythia.com`, and
+  `production.rhythia.com`: injects the disclosed interface features and loads
+  the Rhythia data needed by those features. The extension does not request
+  access to unrelated websites.
+
 ## Data stored locally
 
 The extension stores settings and locally generated data in Chrome extension
@@ -51,6 +69,21 @@ delete them manually.
 The extension provides controls to delete saved history and Title Progression
 data. Automatic retention and size limits can also remove old local records.
 
+## Data sharing and monetization
+
+The extension does not sell, rent, trade, or otherwise monetize user data. It
+does not share profile data, score data, ranking data, authentication data, or
+local cache data with advertising networks, data brokers, analytics providers,
+or the maintainer. It does not use this data for personalized, retargeted, or
+interest-based advertising.
+
+The only external service the extension communicates with for extension
+functionality is Rhythia and its official API endpoints. The extension sends
+only the requests and authentication information needed to load the Rhythia
+data requested by the user. This use is limited to providing and improving the
+extension's disclosed Rhythia interface features and follows the Chrome Web
+Store User Data Policy, including the Limited Use requirements.
+
 ## Diagnostics
 
 Debug Logging is disabled by default. When enabled, it writes redacted errors
@@ -71,7 +104,21 @@ The extension communicates with Rhythia and its official API endpoints to load
 the data required by the extension. Rhythia and Capo Games have their own
 terms and privacy practices, which are separate from this project.
 
+GitHub is used only for public documentation, issue reports, and links shown in
+the extension. The extension does not automatically send local cache, profile
+data, or authentication data to GitHub. Any information a user voluntarily
+includes in a public issue is handled under GitHub's own policies.
+
+## Children's privacy
+
+The extension is not directed to children under 13, and the maintainer does
+not knowingly collect personal information from children under 13. If you
+believe that a child has provided personal information through the extension,
+please contact the maintainer so it can be addressed.
+
 ## Changes and contact
 
 This policy may be updated when the extension's data handling changes. For
-questions, open a public issue or contact the maintainer through GitHub.
+privacy questions, contact `shurieldev@gmail.com`. General questions and
+feature reports may also be opened as public GitHub issues. Do not include
+sessions, cookies, private messages, or other sensitive data in a public issue.
