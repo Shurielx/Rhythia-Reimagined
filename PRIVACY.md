@@ -80,9 +80,15 @@ interest-based advertising.
 The only external service the extension communicates with for extension
 functionality is Rhythia and its official API endpoints. The extension sends
 only the requests and authentication information needed to load the Rhythia
-data requested by the user. This use is limited to providing and improving the
-extension's disclosed Rhythia interface features and follows the Chrome Web
-Store User Data Policy, including the Limited Use requirements.
+data requested by the user. This use is limited to providing the extension's
+disclosed Rhythia interface features and follows the Chrome Web Store User
+Data Policy, including the Limited Use requirements.
+
+This policy describes the extension's own handling of data. The maintainer
+does not operate Rhythia's servers or the official API and cannot confirm how
+Rhythia or Capo Games independently retain, process, or monetize data on their
+services. The extension does not administer, alter, or control records on
+Rhythia's servers.
 
 ## Diagnostics
 
@@ -101,8 +107,15 @@ profile data, or authentication data to GitHub.
 ## Third-party services
 
 The extension communicates with Rhythia and its official API endpoints to load
-the data required by the extension. Rhythia and Capo Games have their own
-terms and privacy practices, which are separate from this project.
+the data required by the extension. Rhythia and Capo Games' terms, privacy
+practices, retention, and monetization practices are separate from this
+project and are not known or controlled by the extension maintainer.
+
+Questions, complaints, or requests about a Rhythia account, official API
+processing, server-side records, authentication sessions, or Capo Games'
+handling of data should be directed to Capo Games through official Rhythia
+support channels. The contact address below is only for the extension's own
+local data handling and privacy questions.
 
 GitHub is used only for public documentation, issue reports, and links shown in
 the extension. The extension does not automatically send local cache, profile
