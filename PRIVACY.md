@@ -1,6 +1,6 @@
 # Privacy Policy
 
-Last updated: 2026-08-01
+Last updated: 2026-08-02
 
 Rhythia Reimagined is an unofficial community browser extension for Rhythia.
 It is maintained by Shurielx and is not affiliated with or endorsed by Capo
@@ -27,6 +27,26 @@ local statistics and comparisons.
 
 This data is stored locally in the user's browser. It is not sent to the
 maintainer, GitHub, an analytics provider, or an advertising service.
+
+Profile statistics use a compact local cache. During the current calendar day,
+the extension keeps an open state for a profile and updates it when the page is
+refreshed. It does not create a permanent history record for every refresh.
+When a later calendar day is first observed, the previous day is closed and at
+most one closed statistics record is kept for that day. Ranking history uses
+the last observed state of each closed day.
+
+Title Progression is separate from daily statistics history. It keeps one
+latest RP and Global rank state per profile so the next visit can show an
+increase or decrease animation. It is replaced when a newer state is saved and
+is not a list of hourly or daily snapshots.
+
+The default retention period for closed statistics and Title Progression state
+is 90 days. Users can choose 30, 60, 90, or 180 days, or disable automatic
+age-based cleanup. The user can also configure the local cache size between 1
+and 100 MB; the default is 50 MB. The cache normally tracks up to 100 unique
+profiles across statistics and Title Progression together. Whitelisted
+profiles are protected from automatic cleanup, although the user can still
+delete them manually.
 
 The extension provides controls to delete saved history and Title Progression
 data. Automatic retention and size limits can also remove old local records.
