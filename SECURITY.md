@@ -10,6 +10,9 @@ not provide a general private direct-message channel between user profiles, so
 do not rely on a GitHub profile for confidential reports.
 
 This public repository contains the community Streamslop catalog, user-facing
-documentation, issue templates, and policy files for Rhythia: Reimagined. The
-extension source code, build scripts, credentials, private developer tooling,
-and user data remain outside this public repository.
+documentation, issue templates, and policy files for Rhythia: Reimagined. It
+does not contain extension source code, build scripts, credentials, private
+developer tooling, or user data. This is a statement about repository
+contents, not a claim that the maintainer receives or stores user data. The
+installed extension may process limited Rhythia page data locally in the user's
+browser as described in `PRIVACY.md`.
