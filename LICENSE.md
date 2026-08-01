@@ -25,10 +25,17 @@ projects, subject to the conditions below.
 
 1. Any public use, publication, distribution, modification, or derivative work
    containing covered Rhythia: Reimagined code or a substantial portion of it
-   must include clear and visible attribution to the original project and
-   author:
+   must include clear and visible attribution to Shuriel. The requirement is
+   satisfied by any one of the following forms:
 
-   > Based on Rhythia: Reimagined by [Shuriel](https://github.com/Shurielx)
+   - `Shuriel` with a hyperlink to
+     [the GitHub profile](https://github.com/Shurielx);
+   - `Shuriel` displayed alongside a hyperlink to
+     [the GitHub profile](https://github.com/Shurielx);
+   - a direct hyperlink to
+     [the GitHub profile](https://github.com/Shurielx).
+
+   No specific wording beyond one of these forms is required.
 
 2. The attribution must be publicly accessible and reasonably easy to find. It
    may be placed in a Credits, About, Attribution, README, documentation,

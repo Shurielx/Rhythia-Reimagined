@@ -58,11 +58,17 @@ repository. Original Rhythia: Reimagined code may be copied, modified, and
 redistributed under the terms of [`LICENSE.md`](LICENSE.md).
 
 Any public use, redistribution, or derivative work containing the original
-project code must include clear and visible credit to
-[Shuriel](https://github.com/Shurielx). The credit must be reasonably easy to
-find in a Credits, About, Attribution, README, documentation, project, or
-release page. It must not be hidden only in source comments, metadata, or an
-otherwise inaccessible legal notice.
+project code must include a clear and visible attribution to Shuriel. The
+attribution requirement is satisfied by any of the following:
+
+- `Shuriel` with a hyperlink to [the GitHub profile](https://github.com/Shurielx);
+- `Shuriel` displayed alongside a hyperlink to [the GitHub profile](https://github.com/Shurielx);
+- a direct hyperlink to [the GitHub profile](https://github.com/Shurielx).
+
+The attribution must be reasonably easy to find in a Credits, About,
+Attribution, README, documentation, project, or release page. It must not be
+hidden only in source comments, metadata, or an otherwise inaccessible legal
+notice. No specific wording beyond one of the forms above is required.
 
 This repository's license does not grant rights to Rhythia.com's code, content,
 data, design, trademarks, or other materials belonging to Capo Games. The
