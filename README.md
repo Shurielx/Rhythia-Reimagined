@@ -9,7 +9,7 @@ a Streamslop tag yet.
 
 ## Status
 
-The current public release is `1.0.0` (`v1.0.0 - Release`). The core
+The current public release is `1.0.0` (`v1.0 - Initial Release`). The core
 functionality is working as intended and the extension is ready for regular use.
 Future updates will continue to improve polish, usability, visual consistency,
 and edge-case handling.
