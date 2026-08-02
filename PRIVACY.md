@@ -9,14 +9,16 @@ Games.
 ## Data the extension reads
 
 The extension reads information already available on Rhythia pages, including
+public profile identifiers and names, the country label shown on a profile,
 profile statistics, score information, ranking information, visible map names,
-and the current page state needed to enhance the interface.
+and the current page state needed to enhance the interface. It does not use
+device location to determine a user's country.
 
 When the extension requests additional score data from the official Rhythia
-API, it may read the Rhythia session value from the current Rhythia page in
-order to authenticate that request. The session value is used only for the
-request and is not stored by the extension, included in diagnostics, or sent to
-GitHub.
+API, it may send the requested public profile identifier and read the Rhythia
+session value from the current Rhythia page in order to authenticate that
+request. The session value is used only for the request and is not stored by
+the extension, included in diagnostics, or sent to GitHub.
 
 The session value is read at request time from the current Rhythia page's local
 storage. The extension does not copy it into its own Chrome storage, persist it
@@ -52,9 +54,10 @@ to enhancing the Rhythia interface.
 ## Data stored locally
 
 The extension stores settings and locally generated data in Chrome extension
-storage. This can include selected themes, module settings, comparison lists,
-profile history, Title Progression state, and compact score data needed for
-local statistics and comparisons.
+storage. This can include public Rhythia profile identifiers and names, the
+country label shown on a profile, selected themes, module settings, comparison
+selections, profile history, Title Progression state, and compact score data
+needed for local statistics and comparisons.
 
 This data is stored locally in the user's browser. It is not sent to the
 maintainer, GitHub, an analytics provider, or an advertising service.
@@ -92,12 +95,17 @@ latest RP and Global rank state per profile so the next visit can show an
 increase or decrease animation. It is replaced when a newer state is saved and
 is not a list of hourly or daily snapshots.
 
-The default retention period for closed statistics and Title Progression state
-is 90 days. Users can choose 30, 60, 90, or 180 days, or disable automatic
-age-based cleanup. The user can configure the full local cache size between 1
-and 1024 MB; the default is 300 MB. The open-day portion has a separate 25 MB
-default limit. The extension also limits open-day captures per profile and
-uses rolling cleanup rather than deleting the complete cache at once.
+The default retention period for closed daily profile history is 90 days.
+Users can choose 30, 60, 90, or 180 days, or disable automatic age-based
+cleanup. Current-day captures are also subject to snapshot and storage limits.
+Title Progression keeps one latest local RP and Global Rank state per tracked
+profile. It is replaced when a newer valid state is saved and is not removed
+automatically by the age-based history setting.
+
+The user can configure the full local cache size between 1 and 1024 MB; the
+default is 300 MB. The open-day portion has a separate 25 MB default limit.
+The extension also limits open-day captures per profile and uses rolling
+cleanup rather than deleting the complete cache at once.
 Whitelisted profiles are protected from automatic cleanup, although the user
 can still delete them manually.
 
@@ -126,12 +134,13 @@ local cache or local backup data with advertising networks, data brokers,
 analytics providers, or the maintainer. It does not use this data for
 personalized, retargeted, or interest-based advertising.
 
-The only external service the extension communicates with for extension
-functionality is Rhythia and its official API endpoints. The extension sends
-only the requests and authentication information needed to load the Rhythia
-data requested by the user. This use is limited to providing the extension's
+The only external service used for the extension's automatic network requests
+is Rhythia and its official API endpoints. The extension sends only the
+requests and authentication information needed to load the Rhythia data
+requested by the user. This use is limited to providing the extension's
 disclosed Rhythia interface features and follows the Chrome Web Store User
-Data Policy, including the Limited Use requirements.
+Data Policy, including the Limited Use requirements. Links that a user opens
+manually are not used for analytics or data collection.
 
 This policy describes the extension's own handling of data. The maintainer
 does not operate Rhythia's servers or the official API and cannot confirm how
@@ -154,7 +163,7 @@ profile data. Anyone who can access the file can read the stored profile
 history and Title Progression values. Do not attach a backup file to a public
 issue or share it with support unless it has been reviewed and redacted.
 
-Restore validates the file format, schema, profile identities, timestamps,
+Restore validates the file format, schema, profile identifiers, timestamps,
 metrics, and forbidden sensitive field names before changing extension storage.
 Restore uses a preview and merges newer local records rather than silently
 replacing the complete local history.

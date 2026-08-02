@@ -24,6 +24,10 @@ Progression state. Treat it as private user data. Do not upload it to GitHub,
 attach it to an issue, or send it in an email without removing profile data
 first.
 
+Local extension storage and local backup files are not intended to be a secure
+vault. Anyone with access to the browser profile or backup file may be able to
+read the stored profile history.
+
 If a backup restore reports an invalid file, keep the file private and report
 only the error message, extension version, and reproduction steps. The restore
 flow is intended to validate and merge local data; it is not a server upload or

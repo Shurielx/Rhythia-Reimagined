@@ -9,7 +9,7 @@ a Streamslop tag yet.
 
 ## Status
 
-The current public release is `1.0.0` (`v1.0 - Initial Release`). The core
+The current public release is `1.0.0` (`v1.0.0 - Release`). The core
 functionality is working as intended and the extension is ready for regular use.
 Future updates will continue to improve polish, usability, visual consistency,
 and edge-case handling.
@@ -38,9 +38,10 @@ user data are not included in this repository.
 
 ## Privacy & Data Handling
 
-The extension stores settings, profile history, Title Progression state, and
-compact statistics locally in Chrome extension storage. It does not send local
-cache data to the maintainer, GitHub, analytics providers, or advertising
+The extension stores public Rhythia profile identifiers and names, the country
+label shown on a profile, settings, profile history, Title Progression state,
+and compact statistics locally in Chrome extension storage. It does not send
+local cache data to the maintainer, GitHub, analytics providers, or advertising
 services, and it does not include a telemetry or analytics system. The
 extension communicates with the official Rhythia API only when needed to load
 data for its user-facing features. Server-side Rhythia and Capo Games data
