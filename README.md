@@ -20,6 +20,7 @@ and edge-case handling.
 - Performance statistics and score filters
 - Progression and rank tracking
 - Local history and storage management
+- Optional local stable backups for recovery and migration
 - Profile and score comparison tools
 - Streamslop catalog integration
 
@@ -44,6 +45,15 @@ services, and it does not include a telemetry or analytics system. The
 extension communicates with the official Rhythia API only when needed to load
 data for its user-facing features. Server-side Rhythia and Capo Games data
 practices are governed by their own policies.
+
+The extension also supports an optional local stable backup. After the user
+chooses a folder once, the extension can update the same JSON backup file on
+the user's device. The backup contains closed daily history, Title Progression
+state, and stable collection settings. It excludes open-day snapshots,
+diagnostics, sessions, cookies, tokens, request bodies, and authentication
+data. The backup is never uploaded, synchronized through Google, or sent to
+the maintainer. A user can inspect, download a copy, restore, disconnect, or
+delete the backup from the extension's History & Data controls.
 
 ## Credits
 

@@ -41,6 +41,9 @@ to enhancing the Rhythia interface.
 - `activeTab`: lets the popup communicate with the currently active Rhythia
   profile tab when the user uses actions such as saving the current profile
   state.
+- `offscreen`: provides a hidden extension document that writes a user-approved
+  local backup file when stable local data changes. It does not provide access
+  to unrelated websites or a cloud storage service.
 - Host access for `rhythia.com`, `www.rhythia.com`, and
   `production.rhythia.com`: injects the disclosed interface features and loads
   the Rhythia data needed by those features. The extension does not request
@@ -56,6 +59,27 @@ local statistics and comparisons.
 This data is stored locally in the user's browser. It is not sent to the
 maintainer, GitHub, an analytics provider, or an advertising service.
 
+The extension can also maintain an optional external local backup file after
+the user chooses a folder through the browser's file access prompt. The default
+backup interval is 3 days and users can choose an interval from 1 to 30 days or
+disable backups. The backup may be placed in a folder such as
+`Documents/Rhythia Reimagined/Backups`, but the exact location is selected by
+the user and is not silently chosen by the extension.
+
+The stable backup contains only closed daily history, the latest Title
+Progression state, and stable collection settings. It does not contain
+open-day snapshots, diagnostics, sessions, cookies, tokens, request bodies,
+or authentication data. The extension updates the same file after the initial
+folder permission when the browser continues to grant access. It does not
+create recurring automatic Downloads or use `chrome.storage.sync`.
+
+The backup file is outside Chrome extension storage and can therefore survive
+an extension uninstall. It remains a local file controlled by the user. The
+user can view it, download a copy, restore it through the validation and merge
+preview, forget folder access, or delete it from the History & Data controls.
+The extension cannot guarantee access if the file is moved, deleted, or if the
+browser revokes the folder permission.
+
 Profile statistics use a compact local cache. During the current calendar day,
 the extension keeps an open state for a profile and updates it when the page is
 refreshed. It does not create a permanent history record for every refresh.
@@ -70,11 +94,12 @@ is not a list of hourly or daily snapshots.
 
 The default retention period for closed statistics and Title Progression state
 is 90 days. Users can choose 30, 60, 90, or 180 days, or disable automatic
-age-based cleanup. The user can also configure the local cache size between 1
-and 100 MB; the default is 50 MB. The cache normally tracks up to 100 unique
-profiles across statistics and Title Progression together. Whitelisted
-profiles are protected from automatic cleanup, although the user can still
-delete them manually.
+age-based cleanup. The user can configure the full local cache size between 1
+and 1024 MB; the default is 300 MB. The open-day portion has a separate 25 MB
+default limit. The extension also limits open-day captures per profile and
+uses rolling cleanup rather than deleting the complete cache at once.
+Whitelisted profiles are protected from automatic cleanup, although the user
+can still delete them manually.
 
 The extension provides controls to delete saved history and Title Progression
 data. Automatic retention and size limits can also remove old local records.
@@ -84,19 +109,22 @@ data. Automatic retention and size limits can also remove old local records.
 All data created and stored by the extension, including settings, profile
 history, and local caches, remains under the user's control in the browser. You
 can change retention settings, remove individual profiles or records, clear
-saved history and Title Progression data, or remove all extension storage by
-uninstalling the extension from Chrome. These controls apply to local
-extension data only; they do not delete or change records held by Rhythia or
-Capo Games. Requests concerning server-side data should be sent to Capo Games
-through official Rhythia support channels.
+saved history and Title Progression data, delete the external backup file, or
+remove all extension storage by uninstalling the extension from Chrome. An
+extension uninstall removes Chrome extension storage, but it does not
+necessarily remove a backup file that the user selected outside that storage.
+These controls apply to local extension data and local backup files only; they
+do not delete or change records held by Rhythia or Capo Games. Requests
+concerning server-side data should be sent to Capo Games through official
+Rhythia support channels.
 
 ## Data sharing and monetization
 
 The extension does not sell, rent, trade, or otherwise monetize user data. It
 does not share profile data, score data, ranking data, authentication data, or
-local cache data with advertising networks, data brokers, analytics providers,
-or the maintainer. It does not use this data for personalized, retargeted, or
-interest-based advertising.
+local cache or local backup data with advertising networks, data brokers,
+analytics providers, or the maintainer. It does not use this data for
+personalized, retargeted, or interest-based advertising.
 
 The only external service the extension communicates with for extension
 functionality is Rhythia and its official API endpoints. The extension sends
@@ -116,7 +144,20 @@ Rhythia's servers.
 Debug Logging is disabled by default. When enabled, it writes redacted errors
 and warnings to the browser developer console. Diagnostics do not intentionally
 include sessions, cookies, request bodies, profile names, or full score
-payloads.
+payloads. Backup permission failures and file errors are represented only by
+short local status messages; raw backup contents are not sent to diagnostics.
+
+## Local backup security
+
+The local backup is a user-readable JSON file and should be treated as private
+profile data. Anyone who can access the file can read the stored profile
+history and Title Progression values. Do not attach a backup file to a public
+issue or share it with support unless it has been reviewed and redacted.
+
+Restore validates the file format, schema, profile identities, timestamps,
+metrics, and forbidden sensitive field names before changing extension storage.
+Restore uses a preview and merges newer local records rather than silently
+replacing the complete local history.
 
 ## Feedback and issue reports
 
