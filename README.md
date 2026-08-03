@@ -5,7 +5,9 @@ way to explore Rhythia profiles, scores, progression, and performance data.
 
 The extension also includes a community-maintained catalog of Streamslop maps.
 Streamslops are tagged manually for now because the Rhythia API does not expose
-a Streamslop tag yet.
+a Streamslop tag yet. The catalog lists names and tags for community use; it does
+not transfer ownership of the underlying music, maps, artwork, or other
+third-party material.
 
 ## Status
 
@@ -38,39 +40,18 @@ user data are not included in this repository.
 
 ## Privacy & Data Handling
 
-The extension stores public Rhythia profile identifiers and names, the country
-label shown on a profile, settings, profile history, Title Progression state,
-and compact statistics locally in Chrome extension storage. It does not send
-local cache data to the maintainer, GitHub, analytics providers, or advertising
-services, and it does not include a telemetry or analytics system. The
-extension communicates with the official Rhythia API only when needed to load
-data for its user-facing features. Server-side Rhythia and Capo Games data
-practices are governed by their own policies.
+The extension processes the data needed for its features locally and does not
+send local cache data to the maintainer, GitHub, analytics providers, or
+advertising services. Optional backups stay in a folder selected by the user
+and are not uploaded or synchronized by the extension. Full details are in the
+[privacy policy](PRIVACY.md).
 
-The extension also supports optional local backups. After the user chooses a
-folder, it can write rolling Automatic copies plus on-demand Manual and
-short-lived Recovery copies under `Rhythia Reimagined/Backups/`. Automatic
-backups default to once per day, keep one to five generations, and exclude
-current open-day snapshots. Manual backups may include the open day and app
-settings when the user selects those options. A full Recovery point is created
-before restore operations and expires after three days.
-
-The backup files are never uploaded, synchronized through Google, or sent to
-the maintainer. The folder permission is held in browser IndexedDB, while the
-backup contents remain in the user-selected local folder. Users can inspect
-current and previous automatic copies, open a manual backup as a read-only
-archive, restore selected data with Merge or Replace, reconnect or forget the
-folder permission, and delete local backup files from the History & Data
-controls. Files from the old backup layout are not imported or recognized; only
-the new `rhythia-reimagined-*` backup files are supported.
-
-The extension also runs schema migrations offline at startup. It validates
-existing records before applying one-version-at-a-time migrations and uses a
-lock so concurrent extension contexts do not migrate the same storage at once.
-If a migration fails, existing records are not replaced by partial results;
-storage becomes read-only until a validated restore repairs it, and automatic
-backups are paused. A normal update or first run does not perform a destructive
-reset of existing history or settings.
+Features that read Rhythia data depend on the availability, structure, and
+access rules of Rhythia pages and its official API. Capo Games may change those
+services or apply its own terms and account restrictions; the maintainer does
+not control those services or decisions and cannot guarantee uninterrupted
+operation or any particular account outcome. Users are responsible for using
+the extension consistently with the terms that apply to their Rhythia account.
 
 ## Credits
 

@@ -32,25 +32,36 @@ The production extension uses the following Manifest V3 permissions:
 - `activeTab`: communication with the active Rhythia tab for user-triggered
   popup actions.
 - `offscreen`: writing a user-approved local backup file.
+- `alarms`: running optional local backup checks; this permission does not send
+  data to an external service.
 - HTTPS host access for `rhythia.com`, `www.rhythia.com`, and
   `production.rhythia.com`: injecting the disclosed interface features and
   loading the Rhythia data required by them.
 
 The extension does not request access to unrelated websites.
 
+## Service dependency and account terms
+
+Features that load Rhythia data depend on the availability, structure, and
+access rules of Rhythia pages and the official Rhythia API. Capo Games may
+change, restrict, or discontinue those services, so the maintainer does not
+guarantee uninterrupted availability or compatibility with future changes.
+
+The extension is an unofficial community tool and does not change the terms
+that apply to a Rhythia account. Users are responsible for deciding whether
+their use complies with those terms. The maintainer does not control account
+reviews, restrictions, suspensions, or other actions taken by Capo Games and is
+not responsible for those decisions, except where applicable law provides
+otherwise.
+
 ## Where data is stored
 
-The extension's main settings, profile history, Title Progression state, and
-compact local statistics are stored in Chrome extension storage. The temporary
-Player Compare selection is stored only in session storage so it can survive
-navigation between profiles during the current browser session. Fetched
-comparison statistics are kept in memory while the comparison is open and are
-not saved as comparison data.
-
-A small interface preference, such as the selected scores view, may be stored
-in the Rhythia page's local storage. It does not contain authentication data.
-The backup folder handle is kept in local browser IndexedDB; the backup content
-itself is kept in the user-selected local file.
+The extension's settings, profile history, Title Progression state, and local
+statistics remain in the user's browser. Temporary comparison information is
+used only while the comparison is open or during the current browser session.
+Some interface preferences may be saved locally on the Rhythia page; they do
+not contain authentication data. Access to a user-selected backup folder is
+also remembered locally so the user does not have to grant it every time.
 
 Local extension data is not sent to the maintainer, GitHub, analytics
 providers, advertisers, or data brokers. The extension does not sell or
@@ -58,61 +69,23 @@ monetize this data.
 
 ## Local backup
 
-Local backup is optional and disabled by default. After the user chooses a
-folder through the browser permission prompt, the extension can write local JSON
-files to:
+Local backup is optional and disabled by default. If the user grants access to
+a selected folder, the extension can save copies of local profile history,
+statistics, progression data, and selected settings there. The backup feature
+does not upload, synchronize, or share those files with the maintainer or any
+analytics service.
 
-```text
-Rhythia Reimagined/
-  Backups/
-    Automatic/
-    Manual/
-    Recovery/
-```
+Backups can contain personal or otherwise sensitive profile information. Anyone
+who can access the selected folder or the browser profile may be able to read
+them. Users are responsible for choosing a suitable location, protecting their
+device and files, and deleting backups they no longer need. Uninstalling the
+extension does not necessarily remove files saved outside Chrome storage.
 
-Automatic backups use a rolling set of one to five copies. The default schedule
-is once per day; the available schedules are once per day, once every three
-days, once every seven days, or manual only. Automatic backups contain closed
-daily history, the latest Title Progression state, and stable collection
-settings. They do not contain current `openDay` captures, diagnostics,
-sessions, cookies, tokens, request bodies, or other authentication data.
-
-Manual backups are created on request and can optionally include the current
-`openDay` and application settings. Recovery backups contain the full current
-local state, including `openDay` and application settings. A recovery backup is
-created before a restore or other operation that may change data, and recovery
-files expire after three days. Automatic, Manual, and Recovery files are shown
-and sized separately as well as together in the popup.
-
-Files from the old backup layout are not imported or recognized. Only the new
-`rhythia-reimagined-*` backup files are supported.
-
-The backup folder handle is stored as a browser permission in local IndexedDB,
-not in the JSON backup. A normal update of the same Chrome extension should
-preserve that permission. After uninstalling and reinstalling, the user may
-need to choose the folder again. Backup files are outside Chrome extension
-storage and can survive an uninstall. Forgetting folder access does not delete
-the files; deleting them is a separate user action. Anyone with access to the
-selected folder can read the JSON, so treat all backup types as private profile
-data.
-
-Restore validates the JSON type, schema, export and backup versions, profile
-identifiers, timestamps, metrics, and forbidden sensitive fields before any
-write. It shows a preview and supports selecting profiles, a date range,
-history, Title Progression, and application settings. The user can choose
-`Merge`, which keeps newer local data, or `Replace`, which replaces the selected
-scope. A backup can also be opened as a read-only archive without changing
-local data.
-
-The extension includes an offline data migration runner. At startup it reads
-the schema version from `chrome.storage.local`, takes a migration lock, validates
-records, and applies one-version-at-a-time migrations locally. Migrations do
-not call the Rhythia API or send data to the internet. If validation or a
-migration fails, the old records are left untouched, automatic backups are
-paused, and storage enters a read-only repair-required state. A validated
-external restore can mark the storage repaired. This does not protect against
-physical disk failure or an operating-system crash. A normal update or first
-run does not perform a destructive reset of existing history or settings.
+The extension provides local restore and data recovery tools. These tools are
+intended to reduce the risk of accidental loss, but they are not a guarantee
+against corruption, software errors, device failure, or an operating-system
+problem. A damaged local data state may require a complete restore before the
+extension can safely resume normal operation.
 
 ## Retention and deletion
 

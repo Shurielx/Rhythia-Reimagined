@@ -17,26 +17,33 @@ contents, not a claim that the maintainer receives or stores user data. The
 installed extension may process limited Rhythia page data locally in the user's
 browser as described in `PRIVACY.md`.
 
-The extension may also write user-approved Automatic, Manual, and Recovery JSON
-backups to a local folder outside Chrome extension storage. These files can
-contain profile IDs, usernames, countries, closed daily statistics, ranking
-values, Title Progression state, open-day captures, or app settings depending
-on the backup type and options selected. Treat every backup as private user
+The extension may also write user-approved backups to a local folder outside
+Chrome extension storage. These files can contain profile information, history,
+statistics, progression data, and settings. Treat every backup as private user
 data. Do not upload it to GitHub, attach it to an issue, or send it in an email
-without removing profile data first.
+without removing sensitive information first.
 
 Local extension storage and local backup files are not intended to be a secure
 vault. Anyone with access to the browser profile or backup file may be able to
 read the stored profile history.
 
 If a backup restore reports an invalid file, keep the file private and report
-only the error message, extension version, and reproduction steps. The restore
-flow validates data locally and supports a scoped Merge or Replace operation;
-it is not a server upload or a synchronization mechanism. A full Recovery copy
-is created before a restore or other potentially destructive data operation.
+only the error message, extension version, and reproduction steps. Restore and
+recovery are local features, not server uploads or synchronization. They are
+intended as safety measures, but they cannot guarantee recovery from every
+form of corruption, data loss, device failure, or operating-system problem.
 
-The extension performs schema migrations locally and offline. A failed
-migration leaves the previous records untouched, pauses automatic backups, and
-puts storage into a read-only repair-required state. A validated local restore
-can repair that state. This protection does not replace normal backups and does
-not protect against physical disk failure or operating-system crashes.
+If the extension detects a problem with its local data, it may restrict changes
+until the data is restored and checked. This reduces the risk of making a bad
+state worse, but it does not replace normal backups or protect against every
+possible failure.
+
+## External service and account risks
+
+Features that load Rhythia data depend on Rhythia pages and the official API.
+Changes to their availability, structure, access rules, or terms may reduce or
+break extension functionality. The maintainer does not control Capo Games'
+services or its decisions about account reviews, restrictions, suspensions, or
+other enforcement actions. Users should review the terms that apply to their
+account before using the extension and should not assume that the extension is
+approved or endorsed by Capo Games.
