@@ -14,3 +14,5 @@ access the browser profile or selected backup folder may be able to read them.
 The extension depends on Rhythia pages and official Rhythia services. Capo Games
 may change those services or the terms that apply to accounts, which can affect
 the extension. This project is not affiliated with or endorsed by Capo Games.
+Users are responsible for reviewing the terms that apply to their Rhythia
+account before using the extension.

@@ -16,9 +16,9 @@ features, including profile, score, and progression information. Data created by
 the extension, such as settings, history, and statistics, is kept locally in
 the user's browser.
 
-The extension does not read or store browser cookies. Any account information
-needed to request data from Rhythia is used only for that request and is not
-saved by the extension.
+The extension does not read or store browser cookies. Any temporary account
+information needed to request data from Rhythia is used only for that request
+and is not saved by the extension.
 
 The extension does not send user data to the maintainer, GitHub, analytics
 providers, advertisers, or data brokers. It does not sell or monetize user data.
