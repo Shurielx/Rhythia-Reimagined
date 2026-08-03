@@ -1,214 +1,169 @@
 # Privacy Policy
 
-Last updated: 2026-08-02
+Last updated: 2026-08-03
 
 Rhythia Reimagined is an unofficial community browser extension for Rhythia.
 It is maintained by Shurielx and is not affiliated with or endorsed by Capo
 Games.
 
-## Data the extension reads
+This policy describes the extension's own data handling. Rhythia and Capo Games
+operate their own services and policies.
 
-The extension reads information already available on Rhythia pages, including
-public profile identifiers and names, the country label shown on a profile,
-profile statistics, score information, ranking information, visible map names,
-and the current page state needed to enhance the interface. It does not use
-device location to determine a user's country.
+## What the extension reads
 
-When the extension requests additional score data from the official Rhythia
-API, it may send the requested public profile identifier and read the Rhythia
-session value from the current Rhythia page in order to authenticate that
-request. The session value is used only for the request and is not stored by
-the extension, included in diagnostics, or sent to GitHub.
+The extension reads information already shown on Rhythia pages, such as public
+player identifiers, names, country labels, profile statistics, ranking values,
+score information, visible map names, and the page state needed to enhance the
+interface. It does not use device location to determine a country.
 
-The session value is read at request time from the current Rhythia page's local
-storage. The extension does not copy it into its own Chrome storage, persist it
-as extension data, or log it. It is transmitted only as part of the request to
-the official Rhythia API that requires it for authentication, and is not sent
-to any other third party or external service.
+When the official Rhythia API requires it, the extension reads the current
+Rhythia session value from the page's local storage and sends it only with the
+requested API call to `production.rhythia.com`. The session value is not copied
+to extension storage, backup files, diagnostics, GitHub, or the maintainer.
+The extension does not use `chrome.cookies` or read browser cookies directly.
 
-## Permissions used
+## Permissions and host access
 
-The extension requests the following Manifest V3 permissions because they are
-needed for its user-facing features:
+The production extension uses the following Manifest V3 permissions:
 
-The extension requests only the minimum permissions necessary to provide its
-features. It does not collect or process data for secondary purposes unrelated
-to enhancing the Rhythia interface.
+- `storage`: local settings, profile history, Title Progression state, and
+  compact statistics.
+- `unlimitedStorage`: the configurable local history cache.
+- `activeTab`: communication with the active Rhythia tab for user-triggered
+  popup actions.
+- `offscreen`: writing a user-approved local backup file.
+- HTTPS host access for `rhythia.com`, `www.rhythia.com`, and
+  `production.rhythia.com`: injecting the disclosed interface features and
+  loading the Rhythia data required by them.
 
-- `storage`: saves settings, profile history, Title Progression state, and
-  compact local statistics in Chrome extension storage.
-- `unlimitedStorage`: supports the extension's configurable local cache without
-  relying on the browser's smaller default storage quota. The extension still
-  applies its own cache size and profile limits.
-- `activeTab`: lets the popup communicate with the currently active Rhythia
-  profile tab when the user uses actions such as saving the current profile
-  state.
-- `offscreen`: provides a hidden extension document that writes a user-approved
-  local backup file when stable local data changes. It does not provide access
-  to unrelated websites or a cloud storage service.
-- Host access for `rhythia.com`, `www.rhythia.com`, and
-  `production.rhythia.com`: injects the disclosed interface features and loads
-  the Rhythia data needed by those features. The extension does not request
-  access to unrelated websites.
+The extension does not request access to unrelated websites.
 
-## Data stored locally
+## Where data is stored
 
-The extension stores settings and locally generated data in Chrome extension
-storage. This can include public Rhythia profile identifiers and names, the
-country label shown on a profile, selected themes, module settings, comparison
-selections, profile history, Title Progression state, and compact score data
-needed for local statistics and comparisons.
+The extension's main settings, profile history, Title Progression state, and
+compact local statistics are stored in Chrome extension storage. The temporary
+Player Compare selection is stored only in session storage so it can survive
+navigation between profiles during the current browser session. Fetched
+comparison statistics are kept in memory while the comparison is open and are
+not saved as comparison data.
 
-This data is stored locally in the user's browser. It is not sent to the
-maintainer, GitHub, an analytics provider, or an advertising service.
+A small interface preference, such as the selected scores view, may be stored
+in the Rhythia page's local storage. It does not contain authentication data.
+The backup folder handle is kept in local browser IndexedDB; the backup content
+itself is kept in the user-selected local file.
 
-The extension can also maintain an optional external local backup file after
-the user chooses a folder through the browser's file access prompt. The default
-backup interval is 3 days and users can choose an interval from 1 to 30 days or
-disable backups. The backup may be placed in a folder such as
-`Documents/Rhythia Reimagined/Backups`, but the exact location is selected by
-the user and is not silently chosen by the extension.
+Local extension data is not sent to the maintainer, GitHub, analytics
+providers, advertisers, or data brokers. The extension does not sell or
+monetize this data.
 
-The stable backup contains only closed daily history, the latest Title
-Progression state, and stable collection settings. It does not contain
-open-day snapshots, diagnostics, sessions, cookies, tokens, request bodies,
-or authentication data. The extension updates the same file after the initial
-folder permission when the browser continues to grant access. It does not
-create recurring automatic Downloads or use `chrome.storage.sync`.
+## Local backup
 
-The backup file is outside Chrome extension storage and can therefore survive
-an extension uninstall. It remains a local file controlled by the user. The
-user can view it, download a copy, restore it through the validation and merge
-preview, forget folder access, or delete it from the History & Data controls.
-The extension cannot guarantee access if the file is moved, deleted, or if the
-browser revokes the folder permission.
+Local backup is optional and disabled by default. After the user chooses a
+folder through the browser permission prompt, the extension can write local JSON
+files to:
 
-Profile statistics use a compact local cache. During the current calendar day,
-the extension keeps an open state for a profile and updates it when the page is
-refreshed. It does not create a permanent history record for every refresh.
-When a later calendar day is first observed, the previous day is closed and at
-most one closed statistics record is kept for that day. Ranking history uses
-the last observed state of each closed day.
+```text
+Rhythia Reimagined/
+  Backups/
+    Automatic/
+    Manual/
+    Recovery/
+```
 
-Title Progression is separate from daily statistics history. It keeps one
-latest RP and Global rank state per profile so the next visit can show an
-increase or decrease animation. It is replaced when a newer state is saved and
-is not a list of hourly or daily snapshots.
+Automatic backups use a rolling set of one to five copies. The default schedule
+is once per day; the available schedules are once per day, once every three
+days, once every seven days, or manual only. Automatic backups contain closed
+daily history, the latest Title Progression state, and stable collection
+settings. They do not contain current `openDay` captures, diagnostics,
+sessions, cookies, tokens, request bodies, or other authentication data.
 
-The default retention period for closed daily profile history is 90 days.
-Users can choose 30, 60, 90, or 180 days, or disable automatic age-based
-cleanup. Current-day captures are also subject to snapshot and storage limits.
-Title Progression keeps one latest local RP and Global Rank state per tracked
-profile. It is replaced when a newer valid state is saved and is not removed
-automatically by the age-based history setting.
+Manual backups are created on request and can optionally include the current
+`openDay` and application settings. Recovery backups contain the full current
+local state, including `openDay` and application settings. A recovery backup is
+created before a restore or other operation that may change data, and recovery
+files expire after three days. Automatic, Manual, and Recovery files are shown
+and sized separately as well as together in the popup.
 
-The user can configure the full local cache size between 1 and 1024 MB; the
-default is 300 MB. The open-day portion has a separate 25 MB default limit.
-The extension also limits open-day captures per profile and uses rolling
-cleanup rather than deleting the complete cache at once.
-Whitelisted profiles are protected from automatic cleanup, although the user
-can still delete them manually.
+Files from the old backup layout are not imported or recognized. Only the new
+`rhythia-reimagined-*` backup files are supported.
 
-The extension provides controls to delete saved history and Title Progression
-data. Automatic retention and size limits can also remove old local records.
+The backup folder handle is stored as a browser permission in local IndexedDB,
+not in the JSON backup. A normal update of the same Chrome extension should
+preserve that permission. After uninstalling and reinstalling, the user may
+need to choose the folder again. Backup files are outside Chrome extension
+storage and can survive an uninstall. Forgetting folder access does not delete
+the files; deleting them is a separate user action. Anyone with access to the
+selected folder can read the JSON, so treat all backup types as private profile
+data.
 
-## User rights and data control
+Restore validates the JSON type, schema, export and backup versions, profile
+identifiers, timestamps, metrics, and forbidden sensitive fields before any
+write. It shows a preview and supports selecting profiles, a date range,
+history, Title Progression, and application settings. The user can choose
+`Merge`, which keeps newer local data, or `Replace`, which replaces the selected
+scope. A backup can also be opened as a read-only archive without changing
+local data.
 
-All data created and stored by the extension, including settings, profile
-history, and local caches, remains under the user's control in the browser. You
-can change retention settings, remove individual profiles or records, clear
-saved history and Title Progression data, delete the external backup file, or
-remove all extension storage by uninstalling the extension from Chrome. An
-extension uninstall removes Chrome extension storage, but it does not
-necessarily remove a backup file that the user selected outside that storage.
-These controls apply to local extension data and local backup files only; they
-do not delete or change records held by Rhythia or Capo Games. Requests
-concerning server-side data should be sent to Capo Games through official
-Rhythia support channels.
+The extension includes an offline data migration runner. At startup it reads
+the schema version from `chrome.storage.local`, takes a migration lock, validates
+records, and applies one-version-at-a-time migrations locally. Migrations do
+not call the Rhythia API or send data to the internet. If validation or a
+migration fails, the old records are left untouched, automatic backups are
+paused, and storage enters a read-only repair-required state. A validated
+external restore can mark the storage repaired. This does not protect against
+physical disk failure or an operating-system crash. A normal update or first
+run does not perform a destructive reset of existing history or settings.
 
-## Data sharing and monetization
+## Retention and deletion
 
-The extension does not sell, rent, trade, or otherwise monetize user data. It
-does not share profile data, score data, ranking data, authentication data, or
-local cache or local backup data with advertising networks, data brokers,
-analytics providers, or the maintainer. It does not use this data for
-personalized, retargeted, or interest-based advertising.
+Closed daily history is kept for 90 days by default. Users can choose 30, 60,
+90, or 180 days, or disable automatic age-based cleanup. Size limits and
+rolling cleanup also apply. Users can delete selected profiles, history,
+Title Progression data, settings, and the local backup file from the extension.
 
-The only external service used for the extension's automatic network requests
-is Rhythia and its official API endpoints. The extension sends only the
-requests and authentication information needed to load the Rhythia data
-requested by the user. This use is limited to providing the extension's
-disclosed Rhythia interface features and follows the Chrome Web Store User
-Data Policy, including the Limited Use requirements. Links that a user opens
-manually are not used for analytics or data collection.
+Uninstalling the extension removes its Chrome extension storage, but does not
+automatically delete a backup file selected outside that storage. These local
+controls do not delete or change records held by Rhythia or Capo Games.
 
-This policy describes the extension's own handling of data. The maintainer
-does not operate Rhythia's servers or the official API and cannot confirm how
-Rhythia or Capo Games independently retain, process, or monetize data on their
-services. The extension does not administer, alter, or control records on
-Rhythia's servers.
+## Network, diagnostics, and reports
 
-## Diagnostics
+The only automatic external network service used by the production extension
+is Rhythia and its official API endpoints. The extension does not automatically
+send data to GitHub, analytics, advertising, or other external services.
 
-Debug Logging is disabled by default. When enabled, it writes redacted errors
-and warnings to the browser developer console. Diagnostics do not intentionally
-include sessions, cookies, request bodies, profile names, or full score
-payloads. Backup permission failures and file errors are represented only by
-short local status messages; raw backup contents are not sent to diagnostics.
+Debug logging is disabled by default. When enabled, it writes short local
+errors and warnings to the browser developer console. Production diagnostics
+are intended to exclude sessions, cookies, request bodies, profile names, and
+full score payloads. The private Main Dev build contains developer-only local
+instrumentation; the production build removes it.
 
-## Local backup security
-
-The local backup is a user-readable JSON file and should be treated as private
-profile data. Anyone who can access the file can read the stored profile
-history and Title Progression values. Do not attach a backup file to a public
-issue or share it with support unless it has been reviewed and redacted.
-
-Restore validates the file format, schema, profile identifiers, timestamps,
-metrics, and forbidden sensitive field names before changing extension storage.
-Restore uses a preview and merges newer local records rather than silently
-replacing the complete local history.
-
-## Feedback and issue reports
-
-The Feedback link opens the extension's Chrome Web Store listing so a user can
-leave a review. Report and suggestion links open GitHub Issues. The extension
-does not automatically create GitHub issues and does not send local cache,
-profile data, or authentication data to GitHub.
+Users may report issues or privacy questions through GitHub Issues or by email
+at `shurieldev@gmail.com`. The extension does not create GitHub issues
+automatically. Anything a user voluntarily includes in a public issue is
+handled by GitHub under GitHub's policies; do not include sessions, cookies,
+private messages, or unredacted backup files.
 
 ## Third-party services
 
-The extension communicates with Rhythia and its official API endpoints to load
-the data required by the extension. The terms, privacy practices, retention,
-and monetization practices published by Capo Games are separate from this
-project and are not controlled by the extension maintainer.
+Rhythia and Capo Games independently control their own server-side processing,
+retention, terms, and privacy practices. Questions about a Rhythia account,
+official server records, or the Rhythia API should be directed to the official
+Rhythia support channels.
 
-Questions, complaints, or requests about a Rhythia account, official API
-processing, server-side records, authentication sessions, or how Capo Games
-handles data should be directed to Capo Games through official Rhythia support
-channels. The contact address below is only for the extension's own local data
-handling and privacy questions.
-
-Official provider references:
+References:
 
 - [Capo Games](https://www.capo.games/)
 - [Rhythia Terms and Privacy](https://github.com/Capo-Games/terms-privacy)
 - Rhythia privacy contact: `support@rhythia.com`
 
-GitHub is used only for public documentation, issue reports, and links shown in
-the extension. The extension does not automatically send local cache, profile
-data, or authentication data to GitHub. Any information a user voluntarily
-includes in a public issue is handled under GitHub's own policies.
-
 ## Children's privacy
 
-The extension is not directed to children under 13, and the maintainer does
-not knowingly collect personal information from children under 13. If you
-believe that a child has provided personal information through the extension,
-please contact the maintainer so it can be addressed.
+The extension is not directed to children. The maintainer does not knowingly
+collect personal information through the extension. If you believe sensitive
+information was submitted through GitHub or email, contact the maintainer so
+it can be addressed.
 
-## Changes and contact
+## Changes
 
-This policy may be updated when the extension's data handling changes. For
-privacy questions, contact `shurieldev@gmail.com`. General questions and
-feature reports may also be opened as public GitHub issues. Do not include
-sessions, cookies, private messages, or other sensitive data in a public issue.
+This policy may be updated when the extension's data handling changes. The
+latest version is published in this repository.

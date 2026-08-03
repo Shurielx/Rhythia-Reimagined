@@ -20,7 +20,7 @@ and edge-case handling.
 - Performance statistics and score filters
 - Progression and rank tracking
 - Local history and storage management
-- Optional local stable backups for recovery and migration
+- Optional local automatic, manual, and recovery backups
 - Profile and score comparison tools
 - Streamslop catalog integration
 
@@ -47,14 +47,30 @@ extension communicates with the official Rhythia API only when needed to load
 data for its user-facing features. Server-side Rhythia and Capo Games data
 practices are governed by their own policies.
 
-The extension also supports an optional local stable backup. After the user
-chooses a folder once, the extension can update the same JSON backup file on
-the user's device. The backup contains closed daily history, Title Progression
-state, and stable collection settings. It excludes open-day snapshots,
-diagnostics, sessions, cookies, tokens, request bodies, and authentication
-data. The backup is never uploaded, synchronized through Google, or sent to
-the maintainer. A user can inspect, download a copy, restore, disconnect, or
-delete the backup from the extension's History & Data controls.
+The extension also supports optional local backups. After the user chooses a
+folder, it can write rolling Automatic copies plus on-demand Manual and
+short-lived Recovery copies under `Rhythia Reimagined/Backups/`. Automatic
+backups default to once per day, keep one to five generations, and exclude
+current open-day snapshots. Manual backups may include the open day and app
+settings when the user selects those options. A full Recovery point is created
+before restore operations and expires after three days.
+
+The backup files are never uploaded, synchronized through Google, or sent to
+the maintainer. The folder permission is held in browser IndexedDB, while the
+backup contents remain in the user-selected local folder. Users can inspect
+current and previous automatic copies, open a manual backup as a read-only
+archive, restore selected data with Merge or Replace, reconnect or forget the
+folder permission, and delete local backup files from the History & Data
+controls. Files from the old backup layout are not imported or recognized; only
+the new `rhythia-reimagined-*` backup files are supported.
+
+The extension also runs schema migrations offline at startup. It validates
+existing records before applying one-version-at-a-time migrations and uses a
+lock so concurrent extension contexts do not migrate the same storage at once.
+If a migration fails, existing records are not replaced by partial results;
+storage becomes read-only until a validated restore repairs it, and automatic
+backups are paused. A normal update or first run does not perform a destructive
+reset of existing history or settings.
 
 ## Credits
 
