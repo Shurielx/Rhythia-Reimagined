@@ -40,11 +40,9 @@ user data are not included in this repository.
 
 ## Privacy & Data Handling
 
-The extension processes the data needed for its features locally. It does not
-send local data to the maintainer, GitHub, analytics, or advertising services.
-Optional backups remain in a folder selected by the user and are not uploaded
-or synchronized by the extension. See the [privacy policy](PRIVACY.md) for
-details.
+The extension keeps its data local in the user's browser. Optional backups stay
+in a folder selected by the user and are not uploaded by the extension. See the
+[privacy policy](PRIVACY.md) for details.
 
 ## Credits
 
