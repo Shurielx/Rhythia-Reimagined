@@ -40,18 +40,11 @@ user data are not included in this repository.
 
 ## Privacy & Data Handling
 
-The extension processes the data needed for its features locally and does not
-send local cache data to the maintainer, GitHub, analytics providers, or
-advertising services. Optional backups stay in a folder selected by the user
-and are not uploaded or synchronized by the extension. Full details are in the
-[privacy policy](PRIVACY.md).
-
-Features that read Rhythia data depend on the availability, structure, and
-access rules of Rhythia pages and its official API. Capo Games may change those
-services or apply its own terms and account restrictions; the maintainer does
-not control those services or decisions and cannot guarantee uninterrupted
-operation or any particular account outcome. Users are responsible for using
-the extension consistently with the terms that apply to their Rhythia account.
+The extension processes the data needed for its features locally. It does not
+send local data to the maintainer, GitHub, analytics, or advertising services.
+Optional backups remain in a folder selected by the user and are not uploaded
+or synchronized by the extension. See the [privacy policy](PRIVACY.md) for
+details.
 
 ## Credits
 
