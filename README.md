@@ -1,6 +1,6 @@
-# Rhythia: Reimagined
+# Rhythia Reimagined
 
-Rhythia: Reimagined is a browser extension that adds a clearer and more useful
+Rhythia Reimagined is a browser extension that adds a clearer and more useful
 way to explore Rhythia profiles, scores, progression, and performance data.
 
 The extension also includes a community-maintained catalog of Streamslop maps.
@@ -11,10 +11,10 @@ third-party material.
 
 ## Status
 
-The current public release is `1.0.0` (`v1.0 - Initial Release`). The core
-functionality is working as intended and the extension is ready for regular use.
-Future updates will continue to improve polish, usability, visual consistency,
-and edge-case handling.
+The public release of Rhythia Reimagined is very close. Final touch-ups are
+currently being made before submitting the extension to the Chrome Web Store.
+The core functionality is working as intended, and the extension is being
+prepared for regular use.
 
 ## What It Provides
 
@@ -28,7 +28,7 @@ and edge-case handling.
 
 ## This Repository
 
-This is the public companion repository for Rhythia: Reimagined. It contains:
+This is the public companion repository for Rhythia Reimagined. It contains:
 
 - The public Streamslop catalog
 - User-facing documentation
