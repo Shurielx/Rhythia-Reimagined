@@ -9,12 +9,15 @@ a Streamslop tag yet. The catalog lists names and tags for community use; it doe
 not transfer ownership of the underlying music, maps, artwork, or other
 third-party material.
 
-## Status
+## Release Status
 
-The public release of Rhythia Reimagined is very close. Final touch-ups are
-currently being made before submitting the extension to the Chrome Web Store.
-The core functionality is working as intended, and the extension is being
-prepared for regular use.
+Rhythia Reimagined 1.0.0 is the official production release.
+
+Officially supported browsers are Google Chrome 116 or later and the current
+version of Opera. Other browsers may work, but are not officially supported.
+
+The official Chrome Web Store link will be added here when the listing is
+published. Do not install copies from unverified sources.
 
 ## What It Provides
 
@@ -41,8 +44,17 @@ user data are not included in this repository.
 ## Privacy & Data Handling
 
 The extension keeps its data local in the user's browser. Optional backups stay
-in a folder selected by the user and are not uploaded by the extension. See the
-[privacy policy](PRIVACY.md) for details.
+in a folder selected by the user and are not uploaded by the extension. See
+[Privacy](PRIVACY.md) and [Data and Backups](DATA-AND-BACKUPS.md) for details.
+
+## Documentation
+
+- [Installation](INSTALLATION.md)
+- [Data and Backups](DATA-AND-BACKUPS.md)
+- [Changelog](CHANGELOG.md)
+- [Support](SUPPORT.md)
+- [Privacy policy](PRIVACY.md)
+- [Security policy](SECURITY.md)
 
 ## Credits
 
@@ -76,7 +88,5 @@ their applicable rights and licenses.
 
 ## Support
 
-- [Report a bug](https://github.com/Shurielx/Rhythia-Reimagined/issues/new?template=bug_report.md)
-- [Suggest an improvement](https://github.com/Shurielx/Rhythia-Reimagined/issues/new?template=feature_request.md)
-- [Privacy policy](PRIVACY.md)
-- [Security policy](SECURITY.md)
+See [SUPPORT.md](SUPPORT.md) for bug reports, feature requests, privacy
+questions, and security reports.

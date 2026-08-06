@@ -7,11 +7,11 @@ labels: bug
 
 ## Extension version
 
-<!-- Example: 1.7.1 -->
+<!-- Example: 1.0.0 -->
 
-## Chrome version
+## Browser and version
 
-<!-- Example: Chrome 140 on Windows 11 -->
+<!-- Example: Chrome 116 on Windows 11, or current Opera on Windows 11. -->
 
 ## Where did it happen?
 
@@ -27,7 +27,13 @@ labels: bug
 
 ## Actual behavior
 
+## Frequency
+
+<!-- Always, sometimes, or only under specific conditions. -->
+
 ## Additional context
 
-Screenshots are welcome. Please remove usernames, player IDs, sessions,
-cookies, and private information before attaching anything.
+Screenshots and console errors are welcome. Please remove usernames, player IDs,
+sessions, cookies, exports, backups, and private information before attaching
+anything. For a security vulnerability, do not open a public issue; follow
+[SECURITY.md](../../SECURITY.md).

@@ -2,66 +2,73 @@
 
 Copyright (c) 2026 Shuriel
 
-## Scope
+## Covered materials
 
-This license applies to original Rhythia: Reimagined source code, original
-implementation and design contributions, and project documentation created by
-or properly licensed to Shuriel. The extension source code is maintained in a
-separate private repository; this public repository contains its documentation
-and community catalog.
+This license applies to original Rhythia: Reimagined source code and original
+documentation created by or properly licensed to Shuriel. It also applies to
+original project design material only when that material is clearly identified
+as part of the project.
 
-This license does not apply to the code, content, data, design, trademarks,
-logos, or other materials belonging to Rhythia.com, Capo Games, Google Chrome,
+The public companion repository contains documentation and a community
+catalog, while the extension source is maintained separately. The file
+`data/streamslops.json` and other community catalog entries are not covered by
+this code license unless a separate notice says otherwise. Their names, tags,
+assets, map content, and other third-party materials may have separate rights.
+
+This license does not apply to code, content, data, design, trademarks, logos,
+or other materials belonging to Rhythia.com, Capo Games, Google Chrome,
 third-party libraries, third-party assets, or other external parties.
 
 ## Permission
 
-Permission is hereby granted, free of charge, to any person obtaining a copy of
-covered Rhythia: Reimagined code or a substantial portion of it to use, copy,
-modify, merge, publish, distribute, sublicense, and use the code in other
-projects, subject to the conditions below.
+Permission is granted, free of charge, to any person obtaining a copy of
+covered Rhythia: Reimagined code or documentation to use, copy, modify, merge,
+publish, distribute, sublicense, and use it in other projects, subject to the
+conditions below.
 
 ## Conditions
 
 1. Any public use, publication, distribution, modification, or derivative work
-   containing covered Rhythia: Reimagined code or a substantial portion of it
-   must include clear and visible attribution to Shuriel. The requirement is
-   satisfied by any one of the following forms:
+   containing covered Rhythia: Reimagined material must include clear and
+   visible attribution to Shuriel. The requirement is satisfied by any one of
+   these forms:
 
    - `Shuriel` with a hyperlink to
      [the GitHub profile](https://github.com/Shurielx);
    - `Shuriel` displayed alongside a hyperlink to
      [the GitHub profile](https://github.com/Shurielx);
-   - a direct hyperlink to
-     [the GitHub profile](https://github.com/Shurielx).
-
-   No specific wording beyond one of these forms is required.
+   - a direct hyperlink to [the GitHub profile](https://github.com/Shurielx).
 
 2. The attribution must be publicly accessible and reasonably easy to find. It
    may be placed in a Credits, About, Attribution, README, documentation,
-   project page, release page, or an equivalent location that users can access
-   without inspecting the source code.
+   project page, release page, or equivalent location accessible to users.
 
-3. The attribution must not be hidden only in source-code comments, minified
-   files, metadata, or an otherwise inaccessible legal notice.
+3. Redistributed copies must retain this license and the copyright notice for
+   the covered materials.
 
 4. Modified versions must clearly indicate that changes were made and must not
    imply that the modified version is an official Rhythia: Reimagined release
    or that it was created by Shuriel.
 
-5. Any separately licensed third-party code, library, asset, data, or content
-   remains subject to its own license and attribution requirements.
+5. Separately licensed third-party code, libraries, assets, data, and content
+   remain subject to their own licenses and attribution requirements.
+
+6. The phrase "covered material" means an original project work within the
+   scope above, not Rhythia content or a third-party work merely displayed or
+   referenced by the project.
 
 Failure to comply with these conditions terminates the permissions granted by
 this license. Any use after termination is unauthorized and may infringe the
 author's copyright.
 
-## AI-Assisted Development
+No patent license is granted by this license.
+
+## AI-assisted development
 
 Parts of the project were developed with AI-assisted programming tools. AI
-tools are not authors of the project. This statement does not waive any
-third-party rights that may apply to separately licensed code, libraries,
-website content, trademarks, or other external materials.
+tools are not authors of the project. This statement does not waive third-party
+rights that may apply to separately licensed code, libraries, assets, website
+content, trademarks, or external materials.
 
 ## Disclaimer
 

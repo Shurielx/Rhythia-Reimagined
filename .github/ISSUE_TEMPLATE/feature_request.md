@@ -13,4 +13,11 @@ labels: enhancement
 
 <!-- Profile, scores, popup, Player Compare, or another Rhythia page. -->
 
+## Alternatives considered
+
+<!-- Optional: describe any workaround or other approach. -->
+
 ## Additional context
+
+Please do not include sessions, cookies, private exports, backups, or other
+sensitive information.
